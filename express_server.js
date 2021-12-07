@@ -17,6 +17,11 @@ app.get("/urls", (req, res) => {
   res.render("urls_index", templateVars);
 });
 
+app.post("/urls", (req, res) => {
+  console.log(req.body); // logs the POST req body to console
+  res.send("OK"); // responds with 'OK'
+});
+
 app.get("/urls/new", (req, res) => {
   res.render("urls_new");
 }); 
@@ -38,6 +43,7 @@ app.get("/hello", (req, res) => {
   const templateVars = { greeting: 'Hello World!' };
   res.render("hello_world", templateVars);
 });
+
 
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}!`);
