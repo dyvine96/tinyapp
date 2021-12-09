@@ -67,10 +67,15 @@ app.get("/hello", (req, res) => {
 app.post("/urls/:shortURL/delete", (req, res) => {
   const sURL = req.params.shortURL
   console.log(sURL);
-  console.log(JSON.stringify(urlDatabase));
+  //console.log(JSON.stringify(urlDatabase));
 delete urlDatabase[sURL];
-console.log(JSON.stringify(urlDatabase));
+//console.log(JSON.stringify(urlDatabase));
 res.redirect("/urls");
+});
+
+app.post("/urls/:shortURL", (req, res) => {
+  const urlPage = req.params.shortURL
+  res.redirect(urlPage);
 });
 
 
