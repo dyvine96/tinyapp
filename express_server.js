@@ -61,6 +61,12 @@ app.get("/logout", (req, res) => {;
   res.redirect('/urls');
 });
 
+//Register
+app.get("/register", (req, res) => {
+  const templateVars = {username: req.cookies["username"]};
+  res.render("register", templateVars);
+});
+
 app.get("/urls/:shortURL", (req, res) => {
   const templateVars = { shortURL: req.params.shortURL, longURL: urlDatabase[req.params.shortURL]};
   //const templateVars = {shortURL, longURL};
